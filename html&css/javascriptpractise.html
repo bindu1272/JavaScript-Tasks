@@ -1,0 +1,218 @@
+<html>
+    <head>
+        <!-- <style> -->
+            <!-- /* #myProgress {
+              width: 100%;
+              height: 30px;
+              position: relative;
+              background-color: #ddd;
+            }
+            
+            #myBar {
+              background-color: #4CAF50;
+              width: 10px;
+              height: 30px;
+              position: absolute;
+            }
+            </style> */ -->
+    </head>
+    <body>
+        <p id = "demo">HI BIndu</p>
+        <!-- <button id = "button" onclick="myFunction()">Click Me</button> -->
+        <!-- <div id = "paragraph">
+        <p  class="intro"> Hello world,this is bindu iam from cse department in iiiit nuzvid college .</p>
+        <p class="intro">hello hi my native is karamchedu in prakasam district in andhra pradesh.</p>
+    </div>
+     <button type="button" onclick="document.getElementById('demo').style.color = 'red'">ClickMe </button>
+    <img src="twitter.webp"> -->
+         <!-- <button type="button" onclick="stopFunction()">Click Me</button> -->
+         <h1>JavaScript Progress Bar</h1>
+
+            <div id="myProgress">
+            <div id="myBar"> hi bindu</div>
+            </div>
+
+            <br>
+            <button onclick="move()">Click Me</button> 
+
+        <script>
+            // var person = {
+            //     name : "bindu",
+            //     age : 20,
+            //     initial : "vankayalapati",
+            //     fullname : function(){
+            //         return person.name + " " + person.initial;
+            //     }
+            //     };
+            // document.getElementById("demo").innerHTML = Object.values(person);
+            // document.getElementById("demo").innerHTML = JSON.stringify(person);
+            //  var person = {name : "bindu",fullname : function(){ return person.name;}};
+            //      person.fullname = person.fullname.toString();
+            //  var string = JSON.stringify(person);
+            //  document.getElementById("demo").innerHTML = string;
+                // var array = ["bindu","jyothi","padma","anjaiah"];
+                // document.getElementById("demo").innerHTML = JSON.stringify(array);
+                // var person = {
+                //     name : "bindu",
+                //     age : 20,
+                //     initial : "vankayalapati",
+                //     get initial(){
+                //         return this.initial;
+                //     }
+                // };
+                // document.getElementById("demo").innerHTML = person.initial;
+                // var person = {
+                // firstName: "John",
+                // lastName : "Doe",
+                // language : "en",
+                // get bindu() {
+                //     return this.language;
+                // }
+                // };
+                // document.getElementById("demo").innerHTML = person.bindu;
+                // var person = {
+                //     name : "bindu",
+                //     age : 20,
+                //     initial : "vankayalapati",
+                //     set bindu(value){
+                //         this.initial = value;
+                //     }
+                // };
+                // person.bindu = "binduchowdary"
+                // document.getElementById("demo").innerHTML = person.initial;
+                // var obj = {counter : 1};
+                // Object.defineProperty(obj, "reset", {
+                //      get : function () {
+                //          return ++this.counter;
+                //          } 
+                //      });
+                // // Object.defineProperty(obj, "increment", { get : function () {this.counter++;} });
+                // // Object.defineProperty(obj, "decrement", {
+                // // get : function () {this.counter--;}
+                // //  });
+                // //  Object.defineProperty(obj, "add", {
+                // //  set : function (value) {this.counter += value;}
+                // //  });
+                // // Object.defineProperty(obj, "subtract", {
+                // //  set : function (value) {this.counter -= value;}
+                // //  });
+
+                // Play with counter:
+                //obj.reset;
+                // //  obj.add = 5;
+                // //  obj.subtract = 1;
+                // // obj.increment;
+                // // obj.decrement;
+                //  document.getElementById("demo").innerHTML = obj.reset;
+
+                // function person(fname , lname,age,gender){
+                //     this.firstname = fname;
+                //     this.lastname = lname;
+                //     this.age = age;
+                //     this.gender = gender;
+                //     this.nationality = "indian";
+                //     this.changename = function(){
+                //         return this.firstname + " " + this.lastname;
+                //     }
+                //     this.anothername = function(name){
+                //         this.lastname = name;
+                //     }
+                // }
+                // var father =new  person("bindu","vankayalapati",20,"female");
+                // var mother = new person("padma","vankayalapati",35,"female");
+                // father.anothername("jyothi");
+                // person.prototype.college = "iIIt";
+               
+                // // father.name = function(){
+                // //     return this.firstname + " " + this.lastname;
+                // // }
+                // // document.getElementById("demo").innerHTML = father.changename();
+                // document.getElementById("demo").innerHTML = mother.college;
+                // var counter = 1;
+                // function myFunction(){
+                //     document.getElementById("demo").innerHTML = ++this.counter;
+                // }
+    
+                //    var x = document.getElementById("paragraph");
+                //    var y = x.getElementsByTagName("p");
+                //    document.getElementById("demo").innerHTML = y[0].innerHTML + " " + y[1].innerHTML;
+                // var x =  document.querySelectorAll("p.intro");
+                // document.getElementById("demo").innerHTML = x.innerHTML;
+                // function myFunction(){
+                //     setInterval(function(){
+                //         alert("hi bindu how are you");
+                //     },5)
+                // }
+                // function myFunction(){
+                //     setInterval(alerti,3000)
+                // }
+                // function alerti(){
+                //     window.alert("hi bindu how are you");
+                // }
+                // var mystring = setInterval(myFunction,1000);
+                // function myFunction(){
+                //     var d = new Date();
+                //     var t = d.toLocaleTimeString();
+                //     document.getElementById("demo").innerHTML = t;
+                // }
+                // function stopFunction(){
+                //     clearInterval(mystring);
+                // }
+                // function move(){
+                //     var element = document.getElementById("myBar");
+                //     var x = setInterval(hello,30);
+                //     var width = 0;
+                //     function hello(){
+                //         if (width == 100){
+                //             clearInterval(x);
+                //         }
+                //         else{
+                //             width++;
+                //             element.style.width  = width + '%';
+                //         }
+
+                //     }
+                // }
+                // function move(){
+                //     var element = document.getElementById("myBar");
+                //     var x = setInterval(color ,1000);
+                //     function color(){
+                //     element.style.color = element.style.color == "yellow" ? "pink" : "yellow";
+                //     }
+                // }
+
+
+        </script>
+    </body>
+</html>
+function imgchange() {
+
+}
+function display() {
+    var x = document.getElementById("title2-id");
+    if (x.style.display === "block") {
+        x.style.display = "none";
+    } else {
+        x.style.display = "block";
+    }
+}
+function background() {
+    document.getElementById("title2-id").style.backgroundColor = "lightblue";
+    var y = document.getElementsByClassName('main-body');
+    var i;
+    for (i = 0; i < y.length; i++) {
+        y[i].style.display = "none";
+    }
+}
+function content() {
+    var z = document.getElementsByClassName('title1');
+    var i;
+    for (i = 0; i < z.length; i++) {
+        z[i].style.display = "none";
+    }
+    var element = document.getElementsByClassName("title2-mobile");
+    var i;
+    for (i = 0; i < element.length; i++) {
+        document.getElementById("title2-id").innerHTML = element[i].innerHTML;
+    }
+}

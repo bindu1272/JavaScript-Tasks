@@ -1,0 +1,108 @@
+<html>
+<head>
+    <style>
+        fieldset {
+            background-color: #eeeeee;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        legend {
+            background-color: gray;
+            color: white;
+        }
+
+        .details {
+            margin-top: 20px;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Register Form</h1>
+    <form id="formId" name="registerForm" method="POST" onsubmit="myFunction(event)">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="details">
+                <label for="name">Enter Name</label>
+                <input type="text" name="name" placeholder="Enter Name.."  onchange="personDetails(event)">
+            </div>
+            <div class="details">
+                <label for="age">Enter age</label>
+                <input type="number" name="age"  onchange="personDetails(event)">
+            </div>
+            <div class="details">
+                <div><label>Gender</label></div>
+                <label for="female">Male</label>
+                <input type="radio" name="gender" value="male"  onchange="personDetails(event)">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" value="female"  onchange="personDetails(event)">
+            </div>
+            <div class="details">
+                <div> <label for="subjects">Your Favourite Subjects</label></div>
+                <label for="maths">Maths</label>
+                <input type="checkbox" name="subjects" value="maths" onchange="personDetails(event)">
+                <label for="science">Science</label>
+                <input type="checkbox" name="subjects" value="science" onchange="personDetails(event)">
+                <label for="social">social</label>
+                <input type="checkbox" name="subjects" value="social" onchange="personDetails(event)">
+                <label for="english">English</label>
+                <input type="checkbox" name="subjects" value="english" onchange="personDetails(event)">
+            </div>
+            <div class="details">
+                <div><label for="color">Your Favourite color</label></div>
+                <select name="color" id = "color" onchange="personDetails(event)">
+                    <option>color</option>
+                    <option value="Green">Fruits</option>
+                    <option value="blue">Food</option>
+                    <option value="white">Clothes</option>
+                </select>
+            </div>
+            <div class="details">
+                <div><label for="address">Address</label></div>
+                <textarea name="address" rows="8" cols="15" onchange="personDetails(event)"></textarea>
+            </div>
+            <div class="details">
+                <input id="submit" type="submit" value="submit">
+                <button id="reset" name="reset" onclick="clear()"> Reset</button>
+                <button name="refresh" id="refresh" onclick="reload()">Reload</button>
+            </div>
+        </fieldset>
+    </form>
+    <p id="para" style="font-size: 20px; font-weight: 600;"></p>
+    <script>
+        var profile = {
+            name : null,
+            age : null,
+            gender :null,
+            color :null,
+            address :null,
+            subjects : []
+        }
+        var personDetails  = (event) => {
+            var name = event.target.name;
+            var value = event.target.value;
+            if(name == "subjects"){
+                console.log(event.target);
+                event.target.checked ? profile.subjects.push(value) : profile.subjects.splice(profile.subjects.indexOf(value));
+            }else{
+                profile[name] = value;
+            }
+        }
+        function myFunction(event){
+            event.preventDefault();
+            var data = document.getElementById("para");
+            data.innerHTML =  profile.name != null ? "my name is " + profile["name"] + "," : "";
+            data.innerHTML += profile.age != null ? "my age is " + profile["age"] + "," : ""; 
+            data.innerHTML += profile.gender != null ? "my gender is " + profile["gender"] + "," : ""; 
+            data.innerHTML += profile.color != null ? "my color is " + profile["color"] + "," : ""; 
+            data.innerHTML += profile.address != null ? "my address is " + profile["address"] + "," : ""; 
+            data.innerHTML += profile.subjects.length != 0 ? "my fav subjects are " + profile["subjects"] : ""; 
+        }
+
+    </script>
+   
+</body>
+
+</html>

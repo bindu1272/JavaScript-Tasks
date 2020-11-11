@@ -1,0 +1,133 @@
+    body{
+        margin: 0px;
+    }
+    .header{
+        width: 100%;
+        height: 280px;
+        background-color:#293f51;
+        color: #ffffff;
+    }
+    .header .top-title{
+        display: flex;
+        justify-content: space-around;
+    }
+    .top-title1{
+        border-top: 4px solid #60847d;
+        font-size: 28px;
+        font-family: sans-serif;
+        padding-top: 24px;
+        padding-left: 0px;
+    }
+    .top-title2{
+        padding-top: 38px;
+        color: #60847d;
+        font-family: sans-serif;
+    }
+    .bottom-title{
+        display: flex;
+        justify-content: space-around;
+    }
+    .bottom-title1{
+        font-size: 28px;
+        font-family: sans-serif;
+        padding-left: 14px;
+    }
+    .bottom-title2{
+        padding-top: 4px;
+    }
+    .sub-title{
+        font-size: 14px;
+        margin-right: 4px;
+        font-family: sans-serif;
+    }
+    .main-title1{
+        text-align: center;
+        color: #60847d;
+        font-size: 20px;
+        padding-top: 30px;
+    }
+    .main-title2{
+        text-align: center;
+        padding-top: 8px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .main-title3{
+        padding-top: 6px;
+    }
+    .button{
+        display: flex;
+        margin-left: auto;
+        margin-top: 16px;
+        background-color: unset;
+        margin-right: auto;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+        width: 128px;
+        height : 46px;
+        justify-content: center;
+        align-items: center;
+    }
+    .cards{
+        display: flex;
+        justify-content: center;
+        margin-top: 60px;
+        margin-bottom: 60px;
+    }
+    .card{
+        max-width: 256px;
+        margin-right: 20px;
+    }
+    .card-title{
+        color: #ccd1d5;
+        padding-bottom: 16px;
+    }
+    .card-subtitle{
+        color: #648880;
+        font-family: sans-serif;
+        padding-top: 20px;
+        padding-bottom: 16px;
+    }
+    .card-image{
+        width: 100%;
+        height: 150px;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
+        border-radius: 4px;
+    }
+    .image1{
+        background-image: url("https://itcdc.com/wp-content/uploads/IMG_3570-min.jpg");
+    }
+    .image2{
+        background-image: url("https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F1141464362%2F0x0.jpg");
+
+    }
+    .image3{
+        background-image: url("https://thumbor.forbes.com/thumbor/fit-in/1200x0/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F1141464362%2F0x0.jpg");
+    }
+    .card-info{
+        color: #ccd1d5;
+    }
+    .footer{
+        width: 100%;
+        height: 65px;
+        background-color: #293f51;
+        color: #ffffff;
+        bottom: 0;
+        position: sticky;
+        display : flex;
+        justify-content: space-around
+    }
+    .copy-right{
+        padding-top: 20px;
+        color: #49666a;
+    }
+    .footer-names{
+        padding-top: 20px;
+        display: flex;
+    }
+    .right-footer{
+        margin-right: 12px;
+    }

@@ -1,0 +1,111 @@
+<html>
+
+<head>
+    <style>
+        body {
+            margin: 0;
+            background-color: skyblue;
+        }
+
+        #input-text {
+            height: 40px;
+            padding: 12px 8px 12px 40px;
+            border: 4px solid aqua;
+            width: 1300px;
+        }
+
+        ul {
+            margin-left: 50px;
+            margin-right: 50px;
+            padding: 0;
+            margin-top: 20px;
+        }
+
+
+        ul li {
+            cursor: pointer;
+            padding: 4px 8px 4px 40px;
+            list-style-type: none;
+            background: #eee;
+            font-size: 18px;
+            border: 2px solid;
+            margin-bottom: 10px;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        ul li:nth-child(odd) {
+            background: #f9f9f9;
+        }
+
+        ul li:hover {
+            background-color: aqua;
+        }
+
+        .details {
+            display: flex;
+            justify-content: center;
+        }
+
+        .text {
+            height: 40px;
+        }
+
+        .img {
+            background-image: url("edit_picture.png");
+            width: 40px;
+            height: 40px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body onload="myFunction();">
+    <h1 style="text-align: center;">Enter text into the input feild to add items to your list(max.28 characters)</h1>
+    <h2 style="text-align: center;">Click the item to mark it as complete</h2>
+    <h3 style="text-align: center;">Click the "X" to remove the item from the list</h3>
+    <div class="details" id="mydiv">
+        <div class="text"><input type="text" id="input-text" name="newItem" placeholder="New item ....." maxlength="26"></div>
+        <div class="img" onclick="dynamicList()"></div>
+    </div>
+     <ul id="demo">
+        
+    </ul> 
+    <script>
+        // var list = document.getElementsByTagName("li");
+        // var i;
+        // for (i = 0; i < list.length; i++) {
+        //     var div = document.createElement("div");
+        //     var text = document.createTextNode("X");
+        //     div.className = "wrong";
+        //     div.appendChild(text);
+        //     list[i].appendChild(div);
+        // }
+        var fruits = ["grapes","banana"];
+        function myFunction(){
+            var i;
+            var data = "";
+            for(i=0;i<fruits.length;i++){
+                data += "<li>" + fruits[i] + "<div onclick='removeElements("+i+")'>X</div></li>";
+            }
+            document.getElementById("demo").innerHTML = data;
+        }
+        function dynamicList(){
+           var inputText =  document.getElementById("input-text");
+           fruits.unshift(inputText.value);
+           inputText.value= "";
+           myFunction();
+        }
+        function removeElements(i){
+            fruits.splice(i,1);
+            myFunction();
+        }
+
+    </script>
+</body>
+
+</html>

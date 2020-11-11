@@ -1,0 +1,102 @@
+<html>
+    <head>
+        <style>
+            .subFeilds{
+                display: flex;
+            }
+            textarea{
+                border: 2px solid;
+                font-weight: 600;
+                font-size: 24px;
+                text-align: right;
+            }
+            button{
+                width: 100px;
+                height: 40px;
+                font-weight: 600;
+                font-size: 20px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainFeilds">
+        <textarea rows="3" cols = "29" id = "textArea"  disabled onchange="myMainfunction()"> </textarea>
+        </div>
+        <div class="subFeilds">
+            <div class=""> <button id = "delete" onclick = "myFunction(event)">X</button></div>
+            <div class=""><button id = "percentile" onclick="myFunction(event)">%</button></div>
+            <div class=""><button id = "power" onclick="myFunction(event)">^</button></div>
+            <div class=""><button id = "divide"  onclick="myFunction(event)">/</button></div>
+        </div>
+        <div class="subFeilds">
+            <div class=""><button id = "number7"  onclick="myFunction(event)">7</button></div>
+            <div class=""><button id = "number8"  onclick="myFunction(event)">8</button></div>
+            <div class=""><button id = "number9"  onclick="myFunction(event)">9</button></div>
+            <div class=""><button id = "multiply"  onclick="myFunction(event)">*</button></div>
+        </div>
+        <div class="subFeilds">
+            <div class=""><button id = "number4"  onclick="myFunction(event)">4</button></div>
+            <div class=""><button id = "number5"  onclick="myFunction(event)">5</button></div>
+            <div class=""><button id = "number6"  onclick="myFunction(event)">6</button></div>
+            <div class=""><button id = "subtract"  onclick="myFunction(event)">-</button></div>
+        </div>
+        <div class="subFeilds">
+            <div class=""><button id = "number1"  onclick="myFunction(event)">1</button></div>
+            <div><button id = "number2"  onclick="myFunction(event)">2</button></div>
+            <div><button id = "number3"  onclick="myFunction(event)">3</button></div>
+            <div><button id = "addition"  onclick="myFunction(event)">+</button></div>
+        </div>
+        <div class="subFeilds">
+            <div><button id = "clear"  onclick="myFunction(event)">C</button></div>
+            <div><button id = "number0"  onclick="myFunction(event)">0</button></div>
+            <div><button id = "dot"  onclick="myFunction(event)">.</button></div>
+            <div><button id = "equal"  onclick="myFunction(event)">=</button></div>
+        </div>
+        <script>
+            var first = 0;
+            var second;
+            function myFunction(event){
+                var value = event.target.innerText;
+                var data = "";
+                var content = document.getElementById("textArea").value;
+                var x = content.includes("=");
+                if(x == true){
+                    document.getElementById("textArea").value = value;
+                    first = 0;
+                }
+                if(value == "C"){
+                    document.getElementById("textArea").value = "";
+                    first = 0;
+                }
+                if(value == "X"){
+                    var textAreadata = document.getElementById("textArea").value;
+                    document.getElementById("textArea").value= textAreadata.substr(0,textAreadata.length-1);
+                }
+                if(value == "="){
+                    var textAreadata = document.getElementById("textArea").value;
+                    textAreaeval = textAreadata.substr(textAreadata.length-1,textAreadata.length);
+                    if(textAreaeval == "+" || textAreaeval == "*" || textAreaeval == "%" || textAreaeval == "/" ||
+                     textAreaeval == "-" || textAreaeval =="^" || textAreaeval == "."){
+                        var text = textAreadata.slice(0,textAreadata.length-1);
+                        var textAreaEvaluation = eval(text);
+                        document.getElementById("textArea").value = textAreadata + '\n'+"=" + textAreaEvaluation;
+                    }else{
+                    var stringEval = eval(textAreadata);
+                    document.getElementById("textArea").value = textAreadata + '\n'+"=" + stringEval;
+                    }
+                }
+                if(value!= "C" && value!= "X" && value!= "="){
+                    if(first==0){
+                        if(value == "+" || value == "*" || value == "%" || value == "/" ||
+                            value == "-" || value =="^" || value == "."){
+                                document.getElementById("textArea").value = "0" + value;
+                        }
+                        first = 1;
+                    }else{
+                        document.getElementById("textArea").value += value;
+                    }
+                }
+            }
+        </script>
+    </body>
+</html>

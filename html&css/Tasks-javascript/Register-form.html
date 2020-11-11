@@ -1,0 +1,146 @@
+<html>
+
+<head>
+    <style>
+        fieldset {
+            background-color: #eeeeee;
+            margin-left: 40px;
+            margin-right: 40px;
+        }
+
+        legend {
+            background-color: gray;
+            color: white;
+        }
+
+        .details {
+            margin-top: 20px;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center;">Register Form</h1>
+    <form id="formId" name="registerForm" method="POST" onsubmit="myFunction(event)">
+        <fieldset>
+            <legend>Personal Details</legend>
+            <div class="details">
+                <label for="name">Enter Name</label>
+                <input type="text" name="name" placeholder="Enter Name..">
+            </div>
+            <div class="details">
+                <label for="age">Enter age</label>
+                <input type="number" name="age">
+            </div>
+            <div class="details">
+                <div><label>Gender</label></div>
+                <label for="female">Male</label>
+                <input type="radio" name="gender" value="male">
+                <label for="female">Female</label>
+                <input type="radio" name="gender" value="female">
+            </div>
+            <div class="details">
+                <div> <label for="subjects">Your Favourite Subjects</label></div>
+                <label for="maths">Maths</label>
+                <input type="checkbox" name="subjects" value="maths">
+                <label for="science">Science</label>
+                <input type="checkbox" name="subjects" value="science">
+                <label for="social">social</label>
+                <input type="checkbox" name="subjects" value="social">
+                <label for="english">English</label>
+                <input type="checkbox" name="subjects" value="english">
+            </div>
+            <div class="details">
+                <div><label for="color">Your Favourite color</label></div>
+                <select name="color" id = "color">
+                    <option>color</option>
+                    <option value="Green">Fruits</option>
+                    <option value="blue">Food</option>
+                    <option value="white">Clothes</option>
+                </select>
+            </div>
+            <div class="details">
+                <div><label for="address">Address</label></div>
+                <textarea name="address" rows="8" cols="15"></textarea>
+            </div>
+            <div class="details">
+                <input id="submit" type="submit" value="submit">
+                <button id="reset" name="reset" onclick="clear()"> Reset</button>
+                <button name="refresh" id="refresh" onclick="reload()">Reload</button>
+            </div>
+        </fieldset>
+    </form>
+    <p id="para" style="font-size: 20px; font-weight: 600;"></p>
+    <script>
+        
+        function myFunction(event) {
+            event.preventDefault();
+            var paragraph = document.getElementById("para");
+            var elements = document.forms['registerForm'].elements;
+            var i;
+            paragraph.innerHTML = "";
+            for (i = 0; i < elements.length - 3; i++) {
+                switch (elements[i].name) {
+                    case "name":
+                        if (elements[i].value != "")
+                            paragraph.innerHTML += " my name is " + elements[i].value;
+                        break;
+                    case "age":
+                        if (elements[i].value != "") {
+                            paragraph.innerHTML += " my age is " + elements[i].value;
+                        }
+                        break;
+                    case "gender":
+                        if (elements[i].checked) {
+                            paragraph.innerHTML += " my gender is " + elements[i].value;
+                        }
+                        break;
+                    case "color":
+                        if (elements[i].value != "" && elements[i].value != "color") {
+                            paragraph.innerHTML += " my favorite color  is " + elements[i].value;
+                        }
+                        break;
+                    case "address":
+                        if (elements[i].value != "") {
+                            paragraph.innerHTML += " my address is " + elements[i].value;
+                        }
+                        break;
+                    case "subjects":
+                        var array = [];
+                        if (elements[i].checked) {
+                            array.push(elements[i].value);
+                            paragraph.innerHTML += " my favorite subjects is " + array;
+                        }
+                        break;
+                }
+
+            }
+            clearElements();
+        }
+        function clearElements() {
+            var empty = document.forms["registerForm"].elements;
+            for (i = 0; i < empty.length - 3; i++) {
+                empty[i].value = "";
+            }
+            var genderValue = document.forms['registerForm']['gender'];
+            for (i = 0; i < genderValue.length; i++) {
+                genderValue[i].checked = false;
+            }
+            var subjects = document.forms['registerForm']['subjects'];
+            for (i = 0; i < subjects.length; i++) {
+                subjects[i].checked = false;
+            }
+        }
+        function clear() {
+            clearElements();
+        }
+        function reload() {
+            alert("are you sure to reload");
+            location.reload();
+        }
+
+    </script>
+</body>
+
+</html>

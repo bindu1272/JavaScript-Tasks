@@ -1,0 +1,72 @@
+<html>
+    <head></head>
+    <body>
+        <div>
+            <select name="category" id = "category" onchange="dropDownMenu(event)">
+                <option>select</option>
+                <option value="fruits">Fruits</option>
+                <option value="food">Food</option>
+                <option value="clothes">Clothes</option>
+            </select>
+        </div>
+        <br/>
+        <br/>
+        <div id = "like-dislike"></div>
+        <br/>  <br/>
+        <div id = "final"></div>
+        <br />
+        <div id = "para"></div>
+        <script>
+            var firstDropValue = "";
+            var secondDropValue = "";
+            function dropDownMenu(event){
+                var obj = {
+                    category : ["like","dislike"],
+                    fruits : {
+                        like : ["oranges","guava","grapes"],
+                        dislike : ["apple","banana","pineapple"],
+                    },
+                    food : {
+                        like : ["biryani","chicken","fish"],
+                        dislike : ["mutton","prawns","spicy"],
+                    },
+                    clothes : {
+                        like : ["pant","shirt","saree"],
+                        dislike : ["dhotis","dupattas","shorts"]
+                    }
+                };
+                var name = event.target.name;
+                var value = event.target.value;
+                var data = "";
+                if(value == "fruits" || value == "food" || value == "clothes"){
+                    var array = obj[name];
+                    firstDropValue = value;
+                    data += " <select name = 'category2' id = 'category2' onchange = 'dropDownMenu(event)'>" + 
+                            "<option>select</option>";
+                    for(i=0;i<array.length;i++){
+                        data += "<option value ="+ array[i] +">"+ array[i]+"</option>";
+                    }
+                    data += "</select>";
+                    document.getElementById("like-dislike").innerHTML = data;
+                }
+                data = "";
+                if(name == "category2"){
+                    var array = obj[firstDropValue][value];
+                    secondDropValue = value;
+                    data += " <select name = 'category3' id = 'category3' onchange = 'dropDownMenu(event)'>" + 
+                            "<option>select</option>";
+                    for(i=0;i<array.length;i++){
+                        data += "<option value ="+ array[i] +">"+ array[i]+"</option>";
+                    }
+                    data += "</select>";
+                    document.getElementById("final").innerHTML = data;
+                }
+                if(firstDropValue != "" && secondDropValue != "" && name == "category3"){
+                    var data = document.getElementById("para");
+                    data.innerHTML = "selected category : " + firstDropValue + "<br />";
+                    data.innerHTML += " he " + secondDropValue +"s " + value ; 
+                } 
+            }
+        </script>
+    </body>
+</html>

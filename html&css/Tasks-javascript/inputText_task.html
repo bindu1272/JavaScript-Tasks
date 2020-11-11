@@ -1,0 +1,87 @@
+<html>
+    <head>
+        <style>
+            body{
+                border : 4px solid aqua;
+                padding :40px;
+            }
+            .details{
+                margin-bottom: 20px;
+            }
+            span{
+                font-weight: 600;
+                color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="details">
+            <input type="text" id="number">
+            <button id= "numberButton" onclick="myNumber()">Click Me</button>
+            <span id = "myNumberText"></span> 
+        </div>
+        <div class="details">
+            <input type="text" id="someString">
+            <button id= "someStringButton" onclick="someString()">Click Me</button> 
+            <span id="someStringText"></span>
+        </div>
+        <div class="details">
+            <input type="text" id="additon">
+            <button id= "additonButton" onclick="myAdditon()">Click Me</button> 
+            <span id = "myAdditonText"></span>
+        </div>
+        <div class="details">
+            <input type="text" id="length">
+            <input type="text" id = "breadth">
+            <button id= "perimeterButton" onclick="myPerimeter()">Click Me</button> 
+            <span id = "myPerimeterText"></span>
+        </div>
+        <div class="details">
+            <div><label>Expression is 2x + 1</label></div>
+            <input type="text" id="expression" >
+            <button id= "expressionButton" onclick="myExpression()">Click Me</button> 
+            <span id = "myExpressionText"></span>
+        </div>
+        <script>
+            var myNumber = () => {
+                var number = document.getElementById("number").value;
+                number = eval(number);
+                var data = "";
+                if(number % 2 == 0){
+                    data = number + " is even Number ";
+                }else{
+                    data = number + " is odd Number ";
+                }
+                document.getElementById("myNumberText").innerHTML = data;
+            }
+            var someString = () =>{
+                var string = document.getElementById("someString").value;
+                var array = string.split(",");
+                var array1 = typeof(array);
+                document.getElementById("someStringText").innerHTML = "The elements in an array is ["+ array +"] "+ array1;
+            }
+            var sum =0;
+            var myAdditon = () => {
+                var addNumber = document.getElementById("additon").value;
+                addNumber = eval(addNumber);
+                sum = sum + addNumber;
+                document.getElementById("myAdditonText").innerHTML = "Addition of every Number is "+ sum;
+            }
+            var myPerimeter = () => {
+                var length = document.getElementById("length").value;
+                var breadth = document.getElementById("breadth").value;
+                length = eval(length);
+                breadth = eval(breadth);
+                var perimeter = 2 * (length + breadth);
+                document.getElementById("myPerimeterText").innerHTML = "perimeter of a rectangle is " + perimeter;
+            }
+            var myExpression = () => {
+                var expression = document.getElementById("expression").value;
+                expression = eval(expression);
+                var result = 2 * expression + 1;
+                document.getElementById("myExpressionText").innerHTML = 
+                "calculation of above expression i.e.,, 2x + 1 is "+ result;
+            }
+        </script>
+    </body>
+</html>

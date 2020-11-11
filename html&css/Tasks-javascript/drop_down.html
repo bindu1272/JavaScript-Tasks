@@ -1,0 +1,33 @@
+var wrong = document.getElementsByClassName("wrong");
+        var i;
+        for (i = 0; i < wrong.length; i++) {
+            wrong[i].onclick = function () {
+                var div = this.parentElement;
+                div.style.display = "none";
+            }
+        }
+        function listitem() {
+            var li = document.createElement("li");
+            var inputValue = document.getElementById("input-text").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if (inputValue === '') {
+                alert("write any text in the input box");
+            } else {
+                document.getElementById("demo").appendChild(li);
+            }
+            document.getElementById("input-text").value = "";
+
+            var div = document.createElement("div");
+            var txt = document.createTextNode("X");
+            div.className = "wrong";
+            div.appendChild(txt);
+            li.appendChild(div);
+
+            for (i = 0; i < wrong.length; i++) {
+                wrong[i].onclick = function () {
+                    var div = this.parentElement;
+                    div.style.display = "none";
+                }
+            }
+        }

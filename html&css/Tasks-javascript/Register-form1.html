@@ -1,0 +1,61 @@
+<script>
+        function myFunction(event) {
+            event.preventDefault();
+            var paragraph = document.getElementById("para");
+            var name = document.forms['registerForm']['name'].value;
+            if (name != "") {
+                paragraph.innerHTML = " my name is " + name;
+            }
+            var age = document.forms['registerForm']['age'].value;
+            if (age != "") {
+                paragraph.innerHTML += " my age is " + age;
+            }
+            var gender = document.forms['registerForm']['gender'].value;
+            if (gender != "") {
+                paragraph.innerHTML += " my gender is " + gender;
+            }
+            var favColor = document.forms['registerForm']['color'].value;
+            if (favColor != "" && favColor !="color") {
+                paragraph.innerHTML += " my favorite color  is " + favColor;
+            }
+            var address = document.forms['registerForm']['address'].value;
+            if (address != "") {
+                paragraph.innerHTML += " my address is " + address;
+            }
+            var favSubjects = document.forms['registerForm']['subjects'];
+            var i;
+            var array = [];
+            for (i = 0; i < favSubjects.length; i++) {
+                if (favSubjects[i].checked) {
+                    array.push(favSubjects[i].value);
+                }
+            }
+            for (i = 0; i < array.length; i++) {
+                if (array[i] != "") {
+                    paragraph.innerHTML += " my favorite subjects is " + array;
+                }
+            }
+            clearElements();
+        }
+        function clearElements(){
+            var empty = document.forms["registerForm"].elements;
+            for (i = 0; i < empty.length-3; i++) {
+                empty[i].value = "";
+            }
+            var genderValue = document.forms['registerForm']['gender'];
+            for (i = 0; i < genderValue.length; i++) {
+                genderValue[i].checked = false;
+            }
+            var subjects = document.forms['registerForm']['subjects'];
+            for (i = 0; i < subjects.length; i++) {
+                subjects[i].checked = false;
+            }
+        }
+     function clear(){
+            clearElements();
+        }
+     function reload(){
+         alert("are you sure to reload");
+         location.reload();
+     }
+    </script>

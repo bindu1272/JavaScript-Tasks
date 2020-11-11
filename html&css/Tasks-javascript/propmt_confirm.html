@@ -1,0 +1,32 @@
+<html>
+    <head></head>
+    <body>
+        <p>This buttons show how prompt and confirm will work </p>
+        <button onclick="myPrompt()">promptAlert</button>
+        <button onclick="myConfirm()">confirmBox</button>
+        <p id = "demo"></p>
+        <script>
+            var myPrompt = ()=>{
+                var data;
+                var person = prompt("enter some text");
+                if(person == null || person == ""){
+                    data = "name cant be empty";
+                }
+                if(person<=6){
+                   data += "name should be greater than 6 characters";
+                }
+                document.getElementById("demo").innerHTML = "hi "+ data;
+                
+            }
+            var myConfirm = () =>{
+                var data;
+                if(confirm("press a button")){
+                    data = "you entered ok";
+                }else{
+                    data = "you entered cancel";
+                }
+                document.getElementById("demo").innerHTML = data;
+            }
+        </script>
+    </body>
+</html>

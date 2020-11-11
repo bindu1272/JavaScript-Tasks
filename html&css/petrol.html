@@ -1,0 +1,58 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <p id="para">Click on the button to play a game</p>
+    <button id = "start" onclick="myFunction()">Start Game</button>
+    <div id = "mydiv"></div>
+    <script>
+        function myFunction() {
+            document.getElementById("start").innerHTML= "Try Again";
+            var array = [];
+            var i;
+            for (i = 0; i < 5; i++) {
+                var random = Math.floor((Math.random() * 100) + 1);
+                array.push(random);
+            }
+           var data = document.getElementById("mydiv");
+           data.innerHTML = "game started <br />"; 
+            array.sort(function (a, b) { return a - b });
+            data.innerHTML += "petrol pumps generated at " + array + "<br />";
+            var move = 0;
+            var petrolremaining = 30;
+            var n = 100;
+            for (j = 1; j < n; j++) {
+                var random_move = Math.floor((Math.random() * 6) + 1);
+                if (random_move > petrol) {
+                   continue;
+                }
+                move = move + random_move;
+                if ((move >= 1) && (move <= 100) ) {
+                    var petrol = petrolremaining - move;
+                    for (i = 0; i < 5; i++) {
+                        if (move == array[i] && petrol <= 10) {
+                            petrol = petrol + 20;
+                        }
+                    }
+                    data.innerHTML += " Move " + j;
+                    data.innerHTML += "-      car at " + move + " , Petrol remaining " + petrol;
+                    
+                }
+                if (petrol <= 0) {
+                    data.innerHTML += ", game over";
+                    break;
+                }
+                if (move > 100) {
+                    data.innerHTML += ", reached";
+                    break;
+                }
+                data.innerHTML += "<br />";
+            }
+
+        }
+    </script>
+</body>
+
+</html>
